@@ -1,5 +1,15 @@
-Feature: Login Feature
+Feature: Login Page
 
-  Scenario: Open the login page
-    Given I open the login page
-    Then I should see the login form
+  Scenario: Valid login
+
+    Given the user is on the login page
+    When the user enters a valid username and password
+    And the user clicks the login button
+    Then the user should be logged in successfully
+
+#  Scenario: Invalid login
+#
+#    Given the user is on the login page
+#    When the user enters an invalid username or password
+#    And the user clicks the login button
+#    Then the user should see an error message and remain on the login page
