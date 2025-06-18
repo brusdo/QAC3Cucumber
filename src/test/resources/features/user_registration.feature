@@ -1,15 +1,12 @@
-Feature: Login Page
+Feature: Successful Registration
 
-  Scenario: Valid login
+  @wip #scenario's still being developed or not ready for full execution
+  Scenario: Successful user registration
 
-    Given the user is on the login page
-    When the user enters a valid username and password
-    And the user clicks the login button
-    Then the user should be logged in successfully
-
-#  Scenario: Invalid login
-#
-#    Given the user is on the login page
-#    When the user enters an invalid username or password
-#    And the user clicks the login button
-#    Then the user should see an error message and remain on the login page
+    Given the user is on the registration page
+    When the user enters the information below:
+      | name     | email             | password  |
+      | Bruna    | bruna@test.com    | 12345     |
+    And the user submits the registration form
+    Then the system should display a registration success message
+    And the user should be redirected to the welcome page

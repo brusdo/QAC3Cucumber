@@ -1,11 +1,20 @@
-Feature: Successful Registration
+@regression #Scenarios that are part of the "regression test" suite
+  #Regression tests are a set of tests that ensure new changes haven’t
+  # broken existing functionality
+Feature: Login Attempts
 
-  Scenario: Successful user registration
+  @smoke #Scenarios that are part of the "smoke test" suite
+    #Smoke tests are a small set of critical tests that quickly check if
+      # the most important functions of your application work
 
-    Given the user is on the registration page
-    When the user enters the information below:
-      | name     | email             | password  |
-      | Bruna    | bruna@test.com    | 12345     |
-    And the user submits the registration form
-    Then the system should display a registration success message
-    And the user should be redirected to the welcome page
+  Scenario Outline: Invalid login attempts
+
+    Given the user is on the login page
+    When the user enters <username> and <password>
+    Then the system should display a login error message
+
+    Examples:
+      | username  | password   |
+      | invalid1  | wrongPass  |
+      | validUser | wrongPass  |
+      | invalid2  | correctPass|

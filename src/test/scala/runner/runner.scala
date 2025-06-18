@@ -10,5 +10,6 @@ import org.junit.runner.RunWith
   plugin     = Array("pretty",
     "html:target/cucumber-report.html"),    //repo generation to get the report
   monochrome = true
+//  tags = "@smoke and not @wip
 )
 class runner // an empty class body is OK
